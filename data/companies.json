@@ -1,0 +1,152 @@
+[
+  {
+    "name": "Razorpay",
+    "slug": "razorpay",
+    "category": "Payments",
+    "docsUrl": "https://razorpay.com/docs"
+  },
+  {
+    "name": "Cashfree Payments",
+    "slug": "cashfree-payments",
+    "category": "Payments",
+    "docsUrl": "https://www.cashfree.com/docs"
+  },
+  {
+    "name": "PayU India",
+    "slug": "payu-india",
+    "category": "Payments",
+    "docsUrl": "https://docs.payu.in"
+  },
+  {
+    "name": "Juspay",
+    "slug": "juspay",
+    "category": "Payments",
+    "docsUrl": "https://docs.juspay.in"
+  },
+  {
+    "name": "PhonePe",
+    "slug": "phonepe",
+    "category": "Payments",
+    "docsUrl": "https://developer.phonepe.com/payment-gateway"
+  },
+  {
+    "name": "Setu",
+    "slug": "setu",
+    "category": "Banking & Fintech",
+    "docsUrl": "https://docs.setu.co"
+  },
+  {
+    "name": "Signzy",
+    "slug": "signzy",
+    "category": "Banking & Fintech",
+    "docsUrl": "https://docs.signzy.com"
+  },
+  {
+    "name": "Zoho CRM",
+    "slug": "zoho-crm",
+    "category": "Business Software",
+    "docsUrl": "https://www.zoho.com/crm/developer/docs"
+  },
+  {
+    "name": "Freshworks",
+    "slug": "freshworks",
+    "category": "Business Software",
+    "docsUrl": "https://developers.freshworks.com"
+  },
+  {
+    "name": "Exotel",
+    "slug": "exotel",
+    "category": "Communication",
+    "docsUrl": "https://developer.exotel.com"
+  },
+  {
+    "name": "MSG91",
+    "slug": "msg91",
+    "category": "Communication",
+    "docsUrl": "https://docs.msg91.com"
+  },
+  {
+    "name": "MoEngage",
+    "slug": "moengage",
+    "category": "Business Software",
+    "docsUrl": "https://developers.moengage.com"
+  },
+  {
+    "name": "CleverTap",
+    "slug": "clevertap",
+    "category": "Business Software",
+    "docsUrl": "https://developer.clevertap.com/docs"
+  },
+  {
+    "name": "WebEngage",
+    "slug": "webengage",
+    "category": "Business Software",
+    "docsUrl": "https://docs.webengage.com"
+  },
+  {
+    "name": "Hasura",
+    "slug": "hasura",
+    "category": "Developer Tools",
+    "docsUrl": "https://hasura.io/docs"
+  },
+  {
+    "name": "Frappe Framework",
+    "slug": "frappe-framework",
+    "category": "Developer Tools",
+    "docsUrl": "https://frappeframework.com/docs"
+  },
+  {
+    "name": "Postman",
+    "slug": "postman",
+    "category": "Developer Tools",
+    "docsUrl": "https://learning.postman.com/docs"
+  },
+  {
+    "name": "Mappls",
+    "slug": "mappls",
+    "category": "Travel & Mobility",
+    "docsUrl": "https://developer.mappls.com"
+  },
+  {
+    "name": "ONDC",
+    "slug": "ondc",
+    "category": "Government & Utilities",
+    "docsUrl": "https://resources.ondc.org/tech-resources"
+  },
+  {
+    "name": "Eka Care",
+    "slug": "eka-care",
+    "category": "Healthcare",
+    "docsUrl": "https://developer.eka.care"
+  },
+  {
+    "name": "Sarvam AI",
+    "slug": "sarvam-ai",
+    "category": "AI/ML",
+    "docsUrl": "https://docs.sarvam.ai"
+  },
+  {
+    "name": "Ola Maps",
+    "slug": "ola-maps",
+    "category": "Travel & Mobility",
+    "docsUrl": "https://maps.olakrutrim.com/docs"
+  },
+  {
+    "name": "Composio",
+    "slug": "composio",
+    "category": "AI/ML",
+    "docsUrl": "https://docs.composio.dev"
+  },
+  {
+    "name": "Portkey",
+    "slug": "portkey",
+    "category": "AI/ML",
+    "docsUrl": "https://portkey.ai/docs"
+  },
+  {
+    "name": "Nanonets",
+    "slug": "nanonets",
+    "category": "AI/ML",
+    "docsUrl": "https://docs.nanonets.com"
+  }
+]

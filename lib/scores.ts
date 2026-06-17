@@ -1,4 +1,5 @@
 import { getAllScores, getScoreBySlug } from "./supabase";
+import { toGrade } from "./scoring";
 import type { CompanyScore } from "./types";
 
 export async function getCompanyScore(slug: string): Promise<CompanyScore | null> {
@@ -11,11 +12,5 @@ export async function getLeaderboard(category?: string): Promise<CompanyScore[]>
 }
 
 export function calculateGrade(score: number): CompanyScore["grade"] {
-  if (score >= 90) return "A+";
-  if (score >= 80) return "A";
-  if (score >= 70) return "B";
-  if (score >= 60) return "C";
-  if (score >= 50) return "D";
-  return "F";
+  return toGrade(score);
 }
-

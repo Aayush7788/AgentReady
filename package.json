@@ -12,6 +12,8 @@
     "score:local": "tsx scripts/score-local.ts",
     "score:single": "tsx --env-file=.env.local scripts/score-single.ts",
     "score:all": "tsx --env-file=.env.local scripts/rescore-to-supabase.ts",
+    "score:stored": "tsx --env-file=.env.local scripts/rescore-from-stored.ts",
+    "score:visibility": "tsx --env-file=.env.local scripts/set-score-visibility.ts",
     "check:supabase": "tsx --env-file=.env.local scripts/check-supabase.ts",
     "data:audit": "tsx scripts/audit-company-docs.ts"
   },

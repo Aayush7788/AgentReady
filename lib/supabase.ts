@@ -166,3 +166,21 @@ export async function getAllScores(
 
   return ((data ?? []) as ScoreRow[]).map(rowToCompanyScore);
 }
+
+export async function setScoreVisibility(
+  slug: string,
+  hidden: boolean,
+): Promise<CompanyScore | null> {
+  const { data, error } = await getSupabaseAdmin()
+    .from("scores")
+    .update({ hidden })
+    .eq("slug", slug)
+    .select("*")
+    .maybeSingle();
+
+  if (error) {
+    throw new Error(`Supabase visibility update failed: ${error.message}`);
+  }
+
+  return data ? rowToCompanyScore(data as ScoreRow) : null;
+}

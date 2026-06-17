@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { summarizeResults } from "@/lib/scoring";
+import { calculateGrade } from "@/lib/scores";
 import type { CheckResult } from "afdocs";
 
 describe("summarizeResults", () => {
@@ -23,3 +24,13 @@ describe("summarizeResults", () => {
   });
 });
 
+describe("calculateGrade", () => {
+  it("uses the same grade thresholds as the scoring engine", () => {
+    expect(calculateGrade(100)).toBe("A+");
+    expect(calculateGrade(90)).toBe("A");
+    expect(calculateGrade(80)).toBe("B");
+    expect(calculateGrade(70)).toBe("C");
+    expect(calculateGrade(60)).toBe("D");
+    expect(calculateGrade(59)).toBe("F");
+  });
+});

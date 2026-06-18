@@ -52,8 +52,28 @@ npm run score:local -- https://docs.example.com "Example" example "Developer Too
 
 Reports are written under `reports/local/`, which is intentionally ignored by git.
 
-## Known Follow-Up
+## Contact Requests
 
-`npm audit --audit-level=high` currently reports advisories through the Next.js
-dependency line. Do not run a forced major upgrade casually; treat the framework
-upgrade as a separate compatibility task and re-run the full app checks after it.
+Review the newest stored audit-call requests:
+
+```bash
+npm run contacts:list
+```
+
+Limit the output to the newest 20 rows:
+
+```bash
+npm run contacts:list -- 20
+```
+
+## Data Retention
+
+Vercel calls the authenticated cleanup route once per day. You can run the same
+cleanup locally:
+
+```bash
+npm run data:cleanup
+```
+
+The cleanup removes expired score jobs, private user scans older than 30 days,
+contact requests older than 180 days, and obsolete request-limit records.

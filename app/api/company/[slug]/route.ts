@@ -4,9 +4,14 @@ import { getCompanyScore } from "@/lib/scores";
 
 export const runtime = "nodejs";
 
-export async function GET(_request: Request, { params }: { params: { slug: string } }) {
+export async function GET(
+  _request: Request,
+  { params }: { params: Promise<{ slug: string }> },
+) {
+  const { slug } = await params;
+
   try {
-    const score = await getCompanyScore(params.slug);
+    const score = await getCompanyScore(slug);
     if (!score) {
       return NextResponse.json({ error: "not_found", message: "Company score not found." }, { status: 404 });
     }

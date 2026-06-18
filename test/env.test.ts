@@ -1,5 +1,9 @@
 import { afterEach, describe, expect, it } from "vitest";
-import { getSupabaseEnv, getSupabaseStatus } from "@/lib/env";
+import {
+  getMaintenanceStatus,
+  getSupabaseEnv,
+  getSupabaseStatus,
+} from "@/lib/env";
 
 const originalEnv = { ...process.env };
 
@@ -35,5 +39,18 @@ describe("Supabase environment helpers", () => {
       serviceRoleKey: "service-role",
     });
   });
-});
 
+  it("reports maintenance configuration without exposing its value", () => {
+    delete process.env.CRON_SECRET;
+    expect(getMaintenanceStatus()).toEqual({
+      configured: false,
+      missing: ["CRON_SECRET"],
+    });
+
+    process.env.CRON_SECRET = "0123456789abcdef0123456789abcdef";
+    expect(getMaintenanceStatus()).toEqual({
+      configured: true,
+      missing: [],
+    });
+  });
+});

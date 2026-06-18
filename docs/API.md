@@ -2,65 +2,79 @@
 
 ## Health
 
-```http
-GET /api/health
+`GET /api/health`
+
+Returns runtime setup state, seed counts, and scoring engine version without
+exposing secrets.
+
+## Public leaderboard
+
+`GET /api/leaderboard`
+
+Optional exact category filter:
+
+```text
+/api/leaderboard?category=Payments
 ```
 
-Returns runtime setup state, seed counts, and scoring engine version. It does not
-return secrets.
+The response contains summary fields only. Raw per-check results are available
+through individual company reports.
 
-## Leaderboard
+## Public company report
 
-```http
-GET /api/leaderboard
-GET /api/leaderboard?category=Payments
-```
+`GET /api/company/{slug}`
 
-Returns public, non-hidden score rows from Supabase. If Supabase is not
-configured, the route returns:
+Returns one visible company score, or `404` when the report is not public.
+
+## Start a score
+
+`POST /api/score`
 
 ```json
 {
-  "error": "setup_required",
-  "message": "Missing Supabase configuration: SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY.",
-  "missing": ["SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY"]
+  "url": "https://docs.example.com"
 }
 ```
 
-## Company Score
+Known public documentation URLs return their existing report slug. New scans
+return an opaque job ID and remain hidden from the public leaderboard.
 
-```http
-GET /api/company/{slug}
-```
+## Poll a score
 
-Returns one public company score, or `404` when no visible score exists.
+`GET /api/score/{jobId}`
 
-## Score Job
+Returns `running`, `complete`, or `error`. The route is always uncached so
+polling can observe the latest job state. Completed private jobs include the
+full report and expire after 24 hours.
 
-```http
-POST /api/score
-Content-Type: application/json
+## Contact request
 
-{
-  "url": "https://docs.example.com",
-  "name": "Example",
-  "slug": "example",
-  "category": "Developer Tools"
-}
-```
-
-Creates a background score job and returns:
+`POST /api/contact`
 
 ```json
 {
-  "jobId": "...",
-  "slug": "example"
+  "email": "you@company.com",
+  "docsUrl": "https://docs.company.com"
 }
 ```
 
-Poll the job:
+Requests are validated, rate limited, protected with a honeypot field, and
+stored in `contact_requests` or the private storage fallback.
 
-```http
-GET /api/score/{jobId}?slug=example
-```
+## Maintenance
 
+`GET /api/maintenance/cleanup`
+
+This route is called by the daily Vercel cron. It requires
+`Authorization: Bearer <CRON_SECRET>` and removes expired private data and
+request-limit records.
+
+## Agent-readable content
+
+- `GET /llms.txt`
+- `GET /llms-full.txt`
+- `GET /index.md`
+- `GET /companies/{slug}.md`
+- Send `Accept: text/markdown` to `/` or a public company page.
+
+Unknown company HTML and Markdown routes return HTTP `404`.

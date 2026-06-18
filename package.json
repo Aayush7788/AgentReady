@@ -2,29 +2,37 @@
   "name": "agentready",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20.18.1"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest",
     "score:local": "tsx scripts/score-local.ts",
-    "score:single": "tsx --env-file=.env.local scripts/score-single.ts",
-    "score:all": "tsx --env-file=.env.local scripts/rescore-to-supabase.ts",
-    "score:stored": "tsx --env-file=.env.local scripts/rescore-from-stored.ts",
-    "score:visibility": "tsx --env-file=.env.local scripts/set-score-visibility.ts",
-    "check:supabase": "tsx --env-file=.env.local scripts/check-supabase.ts",
-    "data:audit": "tsx scripts/audit-company-docs.ts"
+    "score:single": "tsx --env-file-if-exists=.env.local scripts/score-single.ts",
+    "score:all": "tsx --env-file-if-exists=.env.local scripts/rescore-to-supabase.ts",
+    "score:stored": "tsx --env-file-if-exists=.env.local scripts/rescore-from-stored.ts",
+    "score:visibility": "tsx --env-file-if-exists=.env.local scripts/set-score-visibility.ts",
+    "check:supabase": "tsx --env-file-if-exists=.env.local scripts/check-supabase.ts",
+    "smoke:production": "tsx --env-file-if-exists=.env.local scripts/smoke-production.ts",
+    "data:audit": "tsx scripts/audit-company-docs.ts",
+    "data:cleanup": "tsx --env-file-if-exists=.env.local scripts/cleanup-data.ts",
+    "contacts:list": "tsx --env-file-if-exists=.env.local scripts/list-contact-requests.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.2",
     "@vercel/functions": "^3.7.1",
     "afdocs": "^0.18.7",
+    "ipaddr.js": "^2.4.0",
     "lucide-react": "^1.20.0",
-    "next": "^14.2.35",
+    "next": "^15.5.18",
     "react": "^18",
     "react-dom": "^18",
+    "undici": "^7.28.0",
     "zod": "^4.4.3"
   },
   "devDependencies": {
@@ -35,12 +43,15 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "^14.2.35",
+    "eslint-config-next": "^15.5.18",
     "jsdom": "^29.1.1",
-    "postcss": "^8",
+    "postcss": "^8.5.15",
     "tailwindcss": "^3.4.1",
     "tsx": "^4.22.4",
     "typescript": "^5",
     "vitest": "^4.1.9"
+  },
+  "overrides": {
+    "postcss": "$postcss"
   }
 }

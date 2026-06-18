@@ -1,0 +1,427 @@
+[
+  {
+    "slug": "sarvam-ai",
+    "name": "Sarvam AI",
+    "category": "AI/ML",
+    "docsUrl": "https://docs.sarvam.ai",
+    "score": 98,
+    "grade": "A",
+    "scoredAt": "2026-06-17T16:51:42.641+00:00",
+    "checks": {
+      "total": 23,
+      "pass": 19,
+      "warn": 0,
+      "fail": 3,
+      "skip": 1,
+      "error": 0
+    }
+  },
+  {
+    "slug": "cashfree-payments",
+    "name": "Cashfree Payments",
+    "category": "Payments",
+    "docsUrl": "https://www.cashfree.com/docs",
+    "score": 95,
+    "grade": "A",
+    "scoredAt": "2026-06-17T16:41:19.269+00:00",
+    "checks": {
+      "total": 23,
+      "pass": 17,
+      "warn": 2,
+      "fail": 3,
+      "skip": 1,
+      "error": 0
+    }
+  },
+  {
+    "slug": "clevertap",
+    "name": "CleverTap",
+    "category": "Business Software",
+    "docsUrl": "https://developer.clevertap.com/docs",
+    "score": 95,
+    "grade": "A",
+    "scoredAt": "2026-06-17T16:47:25.244+00:00",
+    "checks": {
+      "total": 23,
+      "pass": 18,
+      "warn": 1,
+      "fail": 2,
+      "skip": 2,
+      "error": 0
+    }
+  },
+  {
+    "slug": "eka-care",
+    "name": "Eka Care",
+    "category": "Healthcare",
+    "docsUrl": "https://developer.eka.care",
+    "score": 95,
+    "grade": "A",
+    "scoredAt": "2026-06-17T16:50:41.163+00:00",
+    "checks": {
+      "total": 23,
+      "pass": 18,
+      "warn": 2,
+      "fail": 2,
+      "skip": 1,
+      "error": 0
+    }
+  },
+  {
+    "slug": "nanonets",
+    "name": "Nanonets",
+    "category": "AI/ML",
+    "docsUrl": "https://docs.nanonets.com",
+    "score": 95,
+    "grade": "A",
+    "scoredAt": "2026-06-17T16:53:05.101+00:00",
+    "checks": {
+      "total": 23,
+      "pass": 17,
+      "warn": 2,
+      "fail": 2,
+      "skip": 2,
+      "error": 0
+    }
+  },
+  {
+    "slug": "postman",
+    "name": "Postman",
+    "category": "Developer Tools",
+    "docsUrl": "https://learning.postman.com/docs",
+    "score": 93,
+    "grade": "A",
+    "scoredAt": "2026-06-17T16:49:38.304+00:00",
+    "checks": {
+      "total": 23,
+      "pass": 17,
+      "warn": 3,
+      "fail": 2,
+      "skip": 1,
+      "error": 0
+    }
+  },
+  {
+    "slug": "payu-india",
+    "name": "PayU India",
+    "category": "Payments",
+    "docsUrl": "https://docs.payu.in",
+    "score": 88,
+    "grade": "B",
+    "scoredAt": "2026-06-17T16:42:08.575+00:00",
+    "checks": {
+      "total": 23,
+      "pass": 13,
+      "warn": 3,
+      "fail": 6,
+      "skip": 1,
+      "error": 0
+    }
+  },
+  {
+    "slug": "frappe-framework",
+    "name": "Frappe Framework",
+    "category": "Developer Tools",
+    "docsUrl": "https://frappeframework.com/docs",
+    "score": 82,
+    "grade": "B",
+    "scoredAt": "2026-06-17T16:48:52.593+00:00",
+    "checks": {
+      "total": 23,
+      "pass": 14,
+      "warn": 2,
+      "fail": 5,
+      "skip": 2,
+      "error": 0
+    }
+  },
+  {
+    "slug": "composio",
+    "name": "Composio",
+    "category": "AI/ML",
+    "docsUrl": "https://docs.composio.dev",
+    "score": 81,
+    "grade": "B",
+    "scoredAt": "2026-06-17T16:52:11.448+00:00",
+    "checks": {
+      "total": 23,
+      "pass": 12,
+      "warn": 1,
+      "fail": 5,
+      "skip": 5,
+      "error": 0
+    }
+  },
+  {
+    "slug": "webengage",
+    "name": "WebEngage",
+    "category": "Business Software",
+    "docsUrl": "https://docs.webengage.com",
+    "score": 79,
+    "grade": "C",
+    "scoredAt": "2026-06-17T16:47:52.289+00:00",
+    "checks": {
+      "total": 23,
+      "pass": 13,
+      "warn": 3,
+      "fail": 5,
+      "skip": 2,
+      "error": 0
+    }
+  },
+  {
+    "slug": "juspay",
+    "name": "Juspay",
+    "category": "Payments",
+    "docsUrl": "https://docs.juspay.in",
+    "score": 74,
+    "grade": "C",
+    "scoredAt": "2026-06-17T16:42:50.382+00:00",
+    "checks": {
+      "total": 23,
+      "pass": 9,
+      "warn": 7,
+      "fail": 6,
+      "skip": 1,
+      "error": 0
+    }
+  },
+  {
+    "slug": "razorpay",
+    "name": "Razorpay",
+    "category": "Payments",
+    "docsUrl": "https://razorpay.com/docs",
+    "score": 74,
+    "grade": "C",
+    "scoredAt": "2026-06-17T16:40:46.113+00:00",
+    "checks": {
+      "total": 23,
+      "pass": 13,
+      "warn": 2,
+      "fail": 6,
+      "skip": 2,
+      "error": 0
+    }
+  },
+  {
+    "slug": "setu",
+    "name": "Setu",
+    "category": "Banking & Fintech",
+    "docsUrl": "https://docs.setu.co",
+    "score": 67,
+    "grade": "D",
+    "scoredAt": "2026-06-17T16:43:29.239+00:00",
+    "checks": {
+      "total": 23,
+      "pass": 11,
+      "warn": 1,
+      "fail": 8,
+      "skip": 3,
+      "error": 0
+    }
+  },
+  {
+    "slug": "exotel",
+    "name": "Exotel",
+    "category": "Communication",
+    "docsUrl": "https://developer.exotel.com",
+    "score": 59,
+    "grade": "F",
+    "scoredAt": "2026-06-17T16:45:45.252+00:00",
+    "checks": {
+      "total": 23,
+      "pass": 8,
+      "warn": 0,
+      "fail": 6,
+      "skip": 9,
+      "error": 0
+    }
+  },
+  {
+    "slug": "mappls",
+    "name": "Mappls",
+    "category": "Travel & Mobility",
+    "docsUrl": "https://developer.mappls.com",
+    "score": 59,
+    "grade": "F",
+    "scoredAt": "2026-06-17T16:49:46.811+00:00",
+    "checks": {
+      "total": 23,
+      "pass": 9,
+      "warn": 0,
+      "fail": 5,
+      "skip": 9,
+      "error": 0
+    }
+  },
+  {
+    "slug": "portkey",
+    "name": "Portkey",
+    "category": "AI/ML",
+    "docsUrl": "https://portkey.ai/docs",
+    "score": 59,
+    "grade": "F",
+    "scoredAt": "2026-06-17T16:52:37.029+00:00",
+    "checks": {
+      "total": 23,
+      "pass": 17,
+      "warn": 2,
+      "fail": 0,
+      "skip": 4,
+      "error": 0
+    }
+  },
+  {
+    "slug": "signzy",
+    "name": "Signzy",
+    "category": "Banking & Fintech",
+    "docsUrl": "https://docs.signzy.com",
+    "score": 59,
+    "grade": "F",
+    "scoredAt": "2026-06-17T16:43:42.047+00:00",
+    "checks": {
+      "total": 23,
+      "pass": 13,
+      "warn": 1,
+      "fail": 5,
+      "skip": 4,
+      "error": 0
+    }
+  },
+  {
+    "slug": "phonepe",
+    "name": "PhonePe",
+    "category": "Payments",
+    "docsUrl": "https://developer.phonepe.com/payment-gateway",
+    "score": 58,
+    "grade": "F",
+    "scoredAt": "2026-06-17T16:43:13.857+00:00",
+    "checks": {
+      "total": 23,
+      "pass": 8,
+      "warn": 0,
+      "fail": 6,
+      "skip": 9,
+      "error": 0
+    }
+  },
+  {
+    "slug": "zoho-crm",
+    "name": "Zoho CRM",
+    "category": "Business Software",
+    "docsUrl": "https://www.zoho.com/crm/developer/docs",
+    "score": 57,
+    "grade": "F",
+    "scoredAt": "2026-06-17T16:45:27.127+00:00",
+    "checks": {
+      "total": 23,
+      "pass": 7,
+      "warn": 1,
+      "fail": 6,
+      "skip": 9,
+      "error": 0
+    }
+  },
+  {
+    "slug": "moengage",
+    "name": "MoEngage",
+    "category": "Business Software",
+    "docsUrl": "https://developers.moengage.com",
+    "score": 44,
+    "grade": "F",
+    "scoredAt": "2026-06-17T16:46:44.693+00:00",
+    "checks": {
+      "total": 23,
+      "pass": 6,
+      "warn": 1,
+      "fail": 7,
+      "skip": 9,
+      "error": 0
+    }
+  },
+  {
+    "slug": "msg91",
+    "name": "MSG91",
+    "category": "Communication",
+    "docsUrl": "https://docs.msg91.com",
+    "score": 39,
+    "grade": "F",
+    "scoredAt": "2026-06-17T16:46:16.373+00:00",
+    "checks": {
+      "total": 23,
+      "pass": 10,
+      "warn": 2,
+      "fail": 8,
+      "skip": 3,
+      "error": 0
+    }
+  },
+  {
+    "slug": "freshworks",
+    "name": "Freshworks",
+    "category": "Business Software",
+    "docsUrl": "https://developers.freshworks.com",
+    "score": 0,
+    "grade": "F",
+    "scoredAt": "2026-06-17T16:45:36.062+00:00",
+    "checks": {
+      "total": 23,
+      "pass": 8,
+      "warn": 1,
+      "fail": 5,
+      "skip": 9,
+      "error": 0
+    }
+  },
+  {
+    "slug": "hasura",
+    "name": "Hasura",
+    "category": "Developer Tools",
+    "docsUrl": "https://hasura.io/docs",
+    "score": 0,
+    "grade": "F",
+    "scoredAt": "2026-06-17T16:48:18.582+00:00",
+    "checks": {
+      "total": 23,
+      "pass": 6,
+      "warn": 1,
+      "fail": 7,
+      "skip": 9,
+      "error": 0
+    }
+  },
+  {
+    "slug": "ola-maps",
+    "name": "Ola Maps",
+    "category": "Travel & Mobility",
+    "docsUrl": "https://maps.olakrutrim.com/docs",
+    "score": 0,
+    "grade": "F",
+    "scoredAt": "2026-06-17T16:51:45.993+00:00",
+    "checks": {
+      "total": 23,
+      "pass": 8,
+      "warn": 1,
+      "fail": 5,
+      "skip": 9,
+      "error": 0
+    }
+  },
+  {
+    "slug": "ondc",
+    "name": "ONDC",
+    "category": "Government & Utilities",
+    "docsUrl": "https://resources.ondc.org/tech-resources",
+    "score": 0,
+    "grade": "F",
+    "scoredAt": "2026-06-17T16:50:06.018+00:00",
+    "checks": {
+      "total": 23,
+      "pass": 9,
+      "warn": 0,
+      "fail": 5,
+      "skip": 9,
+      "error": 0
+    }
+  }
+]

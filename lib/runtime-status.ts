@@ -1,13 +1,19 @@
 import companies from "@/data/companies.json";
 import { CATEGORIES } from "./categorize";
-import { getSiteUrl, getSupabaseStatus } from "./env";
+import {
+  getMaintenanceStatus,
+  getSiteUrl,
+  getSupabaseStatus,
+} from "./env";
 import { AFDOCS_VERSION } from "./scoring";
 
 export function getRuntimeStatus() {
   const supabase = getSupabaseStatus();
+  const maintenance = getMaintenanceStatus();
+  const ready = supabase.configured && maintenance.configured;
 
   return {
-    status: supabase.configured ? "ready" : "setup_required",
+    status: ready ? "ready" : "setup_required",
     siteUrl: getSiteUrl(),
     scoringEngine: {
       name: "afdocs",
@@ -18,7 +24,7 @@ export function getRuntimeStatus() {
       categories: CATEGORIES.length,
     },
     supabase,
+    maintenance,
     timestamp: new Date().toISOString(),
   };
 }
-

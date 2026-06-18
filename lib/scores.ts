@@ -1,4 +1,4 @@
-import { getAllScores, getScoreBySlug } from "./supabase";
+import { getLeaderboardScores, getScoreBySlug } from "./supabase";
 import { toGrade } from "./scoring";
 import type { CompanyScore } from "./types";
 
@@ -7,7 +7,7 @@ export async function getCompanyScore(slug: string): Promise<CompanyScore | null
 }
 
 export async function getLeaderboard(category?: string): Promise<CompanyScore[]> {
-  const scores = await getAllScores({ category });
+  const scores = await getLeaderboardScores(category);
   return scores.sort((a, b) => b.score - a.score || a.name.localeCompare(b.name));
 }
 

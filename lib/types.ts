@@ -22,7 +22,7 @@ export interface CompanyScore {
   scoredAt: string;
   checks: ScoreCounts;
   results?: AgentReadyCheckResult[];
-  categoryScores?: Record<string, number>;
+  categoryScores?: Record<string, number | null>;
   afdocsVersion?: string;
   hidden?: boolean;
   docsProvider?: string | null;
@@ -34,7 +34,7 @@ export interface ScoreBreakdown {
   grade: AgentReadyGrade;
   cap?: ScoreCap;
   checks: ScoreCounts;
-  categoryScores: Record<string, number>;
+  categoryScores: Record<string, number | null>;
 }
 
 export type ScoreJobState =
@@ -46,6 +46,6 @@ export type ScoreJobState =
       grade: AgentReadyGrade;
       summary: ScoreCounts;
       results?: AgentReadyCheckResult[];
+      company?: CompanyScore;
     }
   | { status: "error"; message: string; isTimeout?: boolean };
-

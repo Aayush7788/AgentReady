@@ -47,7 +47,9 @@ export function summarizeResults(results: CheckResult[]): ScoreCounts {
   );
 }
 
-function normalizeCategoryScores(categoryScores: unknown): Record<string, number> {
+export function normalizeCategoryScores(
+  categoryScores: unknown,
+): Record<string, number | null> {
   if (!categoryScores || typeof categoryScores !== "object") return {};
 
   return Object.fromEntries(
@@ -55,10 +57,10 @@ function normalizeCategoryScores(categoryScores: unknown): Record<string, number
       if (typeof value === "number") return [name, value];
       if (value && typeof value === "object" && "score" in value) {
         const score = (value as { score: number | null }).score;
-        return [name, score ?? 0];
+        return [name, score];
       }
 
-      return [name, 0];
+      return [name, null];
     }),
   );
 }
@@ -85,4 +87,3 @@ export async function runAgentReadinessScan(
     breakdown: computeScoreBreakdown(report),
   };
 }
-

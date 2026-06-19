@@ -60,7 +60,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html data-scroll-behavior="smooth" lang="en">
       <body className={`${instrumentSans.variable} ${jetBrainsMono.variable}`}>
         {children}
       </body>

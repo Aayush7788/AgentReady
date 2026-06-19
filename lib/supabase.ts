@@ -151,6 +151,29 @@ async function readInternalJson<T>(path: string): Promise<T | null> {
   return JSON.parse(await data.text()) as T;
 }
 
+async function listInternalJson<T>(
+  prefix: string,
+  limit: number,
+): Promise<T[]> {
+  await ensureInternalBucket();
+  const { data, error } = await getSupabaseAdmin().storage
+    .from(INTERNAL_BUCKET)
+    .list(prefix, {
+      limit,
+      sortBy: { column: "created_at", order: "desc" },
+    });
+  if (error) {
+    throw new Error(`Supabase internal storage list failed: ${error.message}`);
+  }
+
+  const values: T[] = [];
+  for (const file of (data ?? []).filter((entry) => entry.name.endsWith(".json"))) {
+    const value = await readInternalJson<T>(`${prefix}/${file.name}`);
+    if (value !== null) values.push(value);
+  }
+  return values;
+}
+
 async function removeInternalFile(path: string): Promise<void> {
   await ensureInternalBucket();
   const { error } = await getSupabaseAdmin().storage
@@ -524,18 +547,52 @@ export async function createContactRequest(
 export async function listContactRequests(
   limit = 100,
 ): Promise<ContactRequestRow[]> {
+  const safeLimit = Math.min(Math.max(limit, 1), 500);
   const { data, error } = await getSupabaseAdmin()
     .from("contact_requests")
     .select("id, work_email, docs_url, source, status, created_at, updated_at")
     .order("created_at", { ascending: false })
-    .limit(Math.min(Math.max(limit, 1), 500));
+    .limit(safeLimit);
 
-  if (error) {
-    if (isMissingRelation(error)) return [];
+  if (error && !isMissingRelation(error)) {
     throw new Error(`Supabase contact request lookup failed: ${error.message}`);
   }
 
-  return (data ?? []) as ContactRequestRow[];
+  const stored = await listInternalJson<{
+    id: string;
+    workEmail: string;
+    docsUrl: string;
+    source: string;
+    status: ContactRequestRow["status"];
+    createdAt: string;
+  }>("contact-requests", safeLimit);
+  const fallbackRows = stored.map(
+    (request): ContactRequestRow => ({
+      id: request.id,
+      work_email: request.workEmail,
+      docs_url: request.docsUrl,
+      source: request.source,
+      status: request.status,
+      created_at: request.createdAt,
+      updated_at: request.createdAt,
+    }),
+  );
+
+  const rowsById = new Map<string, ContactRequestRow>();
+  for (const row of [
+    ...((data ?? []) as ContactRequestRow[]),
+    ...fallbackRows,
+  ]) {
+    rowsById.set(row.id, row);
+  }
+
+  return Array.from(rowsById.values())
+    .sort(
+      (left, right) =>
+        new Date(right.created_at).getTime() -
+        new Date(left.created_at).getTime(),
+    )
+    .slice(0, safeLimit);
 }
 
 export async function cleanupExpiredData(

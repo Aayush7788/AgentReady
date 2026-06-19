@@ -97,7 +97,7 @@ export async function POST(request: Request) {
       {
         requestId,
         message:
-          "Your request has been received. Aayush will review the documentation URL and reply by email.",
+          "Your request has been received. We will review the documentation URL and reply by email.",
       },
       { status: 201 },
     );

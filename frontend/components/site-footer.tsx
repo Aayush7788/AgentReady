@@ -23,7 +23,9 @@ export function SiteFooter() {
           >
             LinkedIn
           </a>
-          <span aria-label="X profile link will be added later">X (coming soon)</span>
+          <a href="https://x.com/Aayushkotadia9"rel="noreferrer" target="_blank">
+          X
+          </a>
           <a href="mailto:aayushkotadia76@gmail.com">Email</a>
         </div>
       </div>

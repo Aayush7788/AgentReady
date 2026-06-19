@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { LeaderboardCompany } from "@/frontend/components/leaderboard-table";
 import { ContactForm } from "@/frontend/components/contact-form";
 import { LeaderboardTable } from "@/frontend/components/leaderboard-table";
+import { HashScrollRestorer } from "@/frontend/components/hash-scroll-restorer";
 import { FlickeringGrid } from "@/frontend/components/magicui/flickering-grid";
 import { ScoreChecker } from "@/frontend/components/score-checker";
 import { SiteFooter } from "@/frontend/components/site-footer";
@@ -11,6 +12,7 @@ import { readinessCategories, readinessPrinciples } from "@/frontend/lib/content
 export function HomePage({ companies }: { companies: LeaderboardCompany[] }) {
   return (
     <>
+      <HashScrollRestorer />
       <SiteHeader />
       <main id="top">
         <Link className="agent-directive" href="/llms.txt">

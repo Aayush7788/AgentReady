@@ -303,6 +303,13 @@
         font-weight: 600;
       }
 
+      #score,
+      #leaderboard,
+      #procedure,
+      #contact {
+        scroll-margin-top: 60px;
+      }
+
       .section {
         border-bottom: 1px solid var(--line-strong);
         padding: 68px 0;

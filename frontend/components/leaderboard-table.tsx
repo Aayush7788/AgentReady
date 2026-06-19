@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import type { CompanyScore } from "@/lib/types";
 import { docsLabel, gradeClass } from "@/frontend/lib/format";
@@ -34,19 +35,16 @@ export function LeaderboardTable({ companies }: { companies: LeaderboardCompany[
                   className="company-row"
                   key={company.slug}
                   onClick={() => openCompany(company.slug)}
-                  onKeyDown={(event) => {
-                    if (event.key === "Enter" || event.key === " ") {
-                      event.preventDefault();
-                      openCompany(company.slug);
-                    }
-                  }}
-                  tabIndex={0}
                 >
                   <td>
-                    <span className="company-link">
+                    <Link
+                      className="company-link"
+                      href={`/companies/${company.slug}`}
+                      onClick={(event) => event.stopPropagation()}
+                    >
                       <span className="company">{company.name}</span>
                       <span className="subtle">{docsLabel(company.docsUrl)}</span>
-                    </span>
+                    </Link>
                   </td>
                   <td>{company.category}</td>
                   <td>

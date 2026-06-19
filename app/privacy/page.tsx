@@ -37,8 +37,8 @@ export default function PrivacyPage() {
           <h2>Contact requests</h2>
           <p>
             When you request an audit call, AgentReady stores the work email and
-            documentation URL you submit so Aayush Kotadia can respond. Contact
-            requests are retained for no longer than 180 days.
+            documentation URL you submit so the AgentReady team can respond.
+            Contact requests are retained for no longer than 180 days.
           </p>
 
           <h2>Questions or deletion requests</h2>

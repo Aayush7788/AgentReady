@@ -1,6 +1,5 @@
-import { NextResponse } from "next/server";
 import { categoryLabels, readinessCategories } from "@/frontend/lib/content";
-import { getCompanyScore, getLeaderboard } from "@/lib/scores";
+import { getPublicCompanyScore, getPublicLeaderboard } from "@/lib/public-scores";
 
 export const runtime = "nodejs";
 
@@ -16,7 +15,7 @@ function markdownResponse(body: string, status = 200) {
 }
 
 async function homepageMarkdown(): Promise<string> {
-  const companies = await getLeaderboard();
+  const companies = await getPublicLeaderboard();
   return [
     "# AgentReady",
     "",
@@ -50,7 +49,7 @@ async function homepageMarkdown(): Promise<string> {
 }
 
 async function companyMarkdown(slug: string): Promise<string | null> {
-  const company = await getCompanyScore(slug);
+  const company = await getPublicCompanyScore(slug);
   if (!company) return null;
 
   return [

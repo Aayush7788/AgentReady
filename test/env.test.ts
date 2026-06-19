@@ -1,6 +1,7 @@
 import { afterEach, describe, expect, it } from "vitest";
 import {
   getMaintenanceStatus,
+  getSiteUrl,
   getSupabaseEnv,
   getSupabaseStatus,
 } from "@/lib/env";
@@ -9,6 +10,30 @@ const originalEnv = { ...process.env };
 
 afterEach(() => {
   process.env = { ...originalEnv };
+});
+
+describe("site URL resolution", () => {
+  it("uses an explicit non-local site URL and removes its trailing slash", () => {
+    process.env.NEXT_PUBLIC_SITE_URL = "https://agentready.example/";
+    process.env.VERCEL_PROJECT_PRODUCTION_URL = "agentready.vercel.app";
+
+    expect(getSiteUrl()).toBe("https://agentready.example");
+  });
+
+  it("uses the production deployment URL instead of a local explicit URL", () => {
+    process.env.NEXT_PUBLIC_SITE_URL = "http://localhost:3000";
+    process.env.VERCEL_PROJECT_PRODUCTION_URL = "agentready.vercel.app";
+
+    expect(getSiteUrl()).toBe("https://agentready.vercel.app");
+  });
+
+  it("falls back to the current deployment URL for preview deployments", () => {
+    delete process.env.NEXT_PUBLIC_SITE_URL;
+    delete process.env.VERCEL_PROJECT_PRODUCTION_URL;
+    process.env.VERCEL_URL = "agentready-preview.vercel.app";
+
+    expect(getSiteUrl()).toBe("https://agentready-preview.vercel.app");
+  });
 });
 
 describe("Supabase environment helpers", () => {

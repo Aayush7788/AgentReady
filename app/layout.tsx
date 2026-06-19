@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Instrument_Sans, JetBrains_Mono } from "next/font/google";
+import { getSiteUrl } from "@/lib/env";
 import "./globals.css";
 import "@/frontend/styles/site.css";
 
@@ -16,9 +17,14 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
-  ),
+  metadataBase: new URL(getSiteUrl()),
+  applicationName: "AgentReady",
+  authors: [
+    { name: "AgentReady" },
+    { name: "Aayush Kotadia", url: "https://aayushkotadia.vercel.app/" },
+  ],
+  creator: "Aayush Kotadia",
+  publisher: "AgentReady",
   title: {
     default: "AgentReady",
     template: "%s | AgentReady",
@@ -29,10 +35,18 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
+    url: "/",
+    siteName: "AgentReady",
     title: "AgentReady",
     description:
       "Score public documentation across 23 agent-readiness checks and seven categories.",
     type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "AgentReady",
+    description:
+      "Score public documentation across 23 agent-readiness checks and seven categories.",
   },
   robots: {
     index: true,

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { toApiError } from "@/lib/api-errors";
-import { getCompanyScore } from "@/lib/scores";
+import { getPublicCompanyScore } from "@/lib/public-scores";
 
 export const runtime = "nodejs";
 
@@ -11,7 +11,7 @@ export async function GET(
   const { slug } = await params;
 
   try {
-    const score = await getCompanyScore(slug);
+    const score = await getPublicCompanyScore(slug);
     if (!score) {
       return NextResponse.json({ error: "not_found", message: "Company score not found." }, { status: 404 });
     }

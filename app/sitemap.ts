@@ -1,11 +1,10 @@
 import type { MetadataRoute } from "next";
-import leaderboardSnapshot from "@/data/leaderboard-snapshot.json";
 import { getSiteUrl } from "@/lib/env";
-import { getLeaderboard } from "@/lib/scores";
+import { getPublicLeaderboard } from "@/lib/public-scores";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const siteUrl = getSiteUrl();
-  const companies = await getLeaderboard().catch(() => leaderboardSnapshot);
+  const companies = await getPublicLeaderboard();
 
   return [
     {

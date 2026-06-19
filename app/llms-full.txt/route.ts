@@ -1,12 +1,12 @@
 import { getSiteUrl } from "@/lib/env";
-import { getLeaderboard } from "@/lib/scores";
+import { getPublicLeaderboard } from "@/lib/public-scores";
 import { readinessCategories, readinessPrinciples } from "@/frontend/lib/content";
 
 export const runtime = "nodejs";
 
 export async function GET() {
   const siteUrl = getSiteUrl();
-  const companies = await getLeaderboard();
+  const companies = await getPublicLeaderboard();
 
   const body = [
     "# AgentReady full agent-readable index",
@@ -45,7 +45,8 @@ export async function GET() {
     "",
     "## Contact",
     "",
-    "- Developer: Aayush Kotadia",
+    "- Company: AgentReady",
+    "- Founder and developer: Aayush Kotadia",
     "- Email: aayushkotadia76@gmail.com",
     "- Website: https://aayushkotadia.vercel.app/",
     "- LinkedIn: https://www.linkedin.com/in/aayush-kotadia/",

@@ -138,7 +138,12 @@ export function ReportView({
                 <h2>All {report.checks.total} checks.</h2>
               </div>
               {rawApiHref ? (
-                <a className="button" href={rawApiHref} target="_blank">
+                <a
+                  className="button"
+                  href={rawApiHref}
+                  rel="noreferrer"
+                  target="_blank"
+                >
                   Open raw API
                   <ExternalLink aria-hidden="true" size={14} />
                 </a>

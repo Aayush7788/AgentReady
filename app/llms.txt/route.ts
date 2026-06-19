@@ -1,11 +1,11 @@
 import { getSiteUrl } from "@/lib/env";
-import { getLeaderboard } from "@/lib/scores";
+import { getPublicLeaderboard } from "@/lib/public-scores";
 
 export const runtime = "nodejs";
 
 export async function GET() {
   const siteUrl = getSiteUrl();
-  const companies = await getLeaderboard().catch(() => []);
+  const companies = await getPublicLeaderboard();
 
   const body = [
     "# AgentReady",

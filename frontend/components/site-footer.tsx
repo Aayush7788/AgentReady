@@ -23,10 +23,13 @@ export function SiteFooter() {
           >
             LinkedIn
           </a>
-          <a href="https://x.com/Aayushkotadia9"rel="noreferrer" target="_blank">
-          X
+          <a
+            href="https://x.com/Aayushkotadia9"
+            rel="noreferrer"
+            target="_blank"
+          >
+            X
           </a>
-          <a href="mailto:aayushkotadia76@gmail.com">Email</a>
         </div>
       </div>
     </footer>

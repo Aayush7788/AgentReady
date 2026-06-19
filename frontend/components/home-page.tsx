@@ -71,7 +71,7 @@ export function HomePage({ companies }: { companies: LeaderboardCompany[] }) {
               {readinessCategories.map((category) => (
                 <article className="method" key={category.id}>
                   <span className="method-index">
-                    {category.index} · {category.checks} checks
+                    {category.index} / {category.checks} checks
                   </span>
                   <h3>{category.title}</h3>
                   <p>{category.description}</p>

@@ -36,7 +36,7 @@ async function fetchText(url: string, timeoutMs: number): Promise<Response> {
   return fetch(url, {
     headers: {
       Accept: "text/html,text/plain",
-      "User-Agent": "AgentReady/0.1 (+https://agentready.local)",
+      "User-Agent": "AgentReady/0.1 (+https://agentready.vercel.app/llms.txt)",
     },
     signal: AbortSignal.timeout(timeoutMs),
   });

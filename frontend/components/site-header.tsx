@@ -15,7 +15,12 @@ export function SiteHeader() {
           <Link href="/#procedure">Procedure</Link>
           <Link href="/#contact">Get help</Link>
         </nav>
-        <a className="button agent-view-button" href="/llms.txt" target="_blank">
+        <a
+          className="button agent-view-button"
+          href="/llms.txt"
+          rel="noreferrer"
+          target="_blank"
+        >
           <Bot aria-hidden="true" size={15} strokeWidth={1.8} />
           View as Agent
         </a>

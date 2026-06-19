@@ -2,6 +2,8 @@ import { z } from "zod";
 
 const envSchema = z.object({
   NEXT_PUBLIC_SITE_URL: z.string().url().optional(),
+  VERCEL_PROJECT_PRODUCTION_URL: z.string().min(1).optional(),
+  VERCEL_URL: z.string().min(1).optional(),
   SUPABASE_URL: z.string().url().optional(),
   SUPABASE_SERVICE_ROLE_KEY: z.string().min(1).optional(),
   CRON_SECRET: z.string().min(24).optional(),
@@ -21,6 +23,9 @@ export class ConfigurationError extends Error {
 export function readEnv() {
   return envSchema.parse({
     NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
+    VERCEL_PROJECT_PRODUCTION_URL:
+      process.env.VERCEL_PROJECT_PRODUCTION_URL,
+    VERCEL_URL: process.env.VERCEL_URL,
     SUPABASE_URL: process.env.SUPABASE_URL,
     SUPABASE_SERVICE_ROLE_KEY: process.env.SUPABASE_SERVICE_ROLE_KEY,
     CRON_SECRET: process.env.CRON_SECRET,
@@ -28,7 +33,19 @@ export function readEnv() {
 }
 
 export function getSiteUrl(): string {
-  return readEnv().NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+  const env = readEnv();
+  const vercelHost =
+    env.VERCEL_PROJECT_PRODUCTION_URL ?? env.VERCEL_URL;
+  const explicitUrl = env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
+  const explicitIsLocal =
+    explicitUrl === "http://localhost:3000" ||
+    explicitUrl === "http://127.0.0.1:3000";
+
+  if (explicitUrl && (!explicitIsLocal || !vercelHost)) {
+    return explicitUrl;
+  }
+
+  return vercelHost ? `https://${vercelHost}` : "http://localhost:3000";
 }
 
 export function getSupabaseStatus(): {

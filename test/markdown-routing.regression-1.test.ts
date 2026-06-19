@@ -4,9 +4,9 @@ import type { CompanyScore } from "@/lib/types";
 const getCompanyScore = vi.fn();
 const getLeaderboard = vi.fn();
 
-vi.mock("@/lib/scores", () => ({
-  getCompanyScore,
-  getLeaderboard,
+vi.mock("@/lib/public-scores", () => ({
+  getPublicCompanyScore: getCompanyScore,
+  getPublicLeaderboard: getLeaderboard,
 }));
 
 const report = {

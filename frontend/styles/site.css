@@ -529,11 +529,6 @@
         cursor: pointer;
       }
 
-      .company-row:focus-visible {
-        outline: 2px solid var(--primary);
-        outline-offset: -2px;
-      }
-
       .company-link {
         display: flex;
         flex-direction: column;
@@ -1265,7 +1260,6 @@
       .scanner:focus-within,
       .field input:focus-visible,
       .button:focus-visible,
-      .company-row:focus-visible,
       a:focus-visible {
         outline: 2px solid var(--primary);
         outline-offset: 3px;

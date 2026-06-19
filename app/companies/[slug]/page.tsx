@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ReportView } from "@/frontend/components/report-view";
-import { getCompanyScore } from "@/lib/scores";
+import { getPublicCompanyScore } from "@/lib/public-scores";
 
 export const revalidate = 300;
 
@@ -11,7 +11,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const company = await getCompanyScore(slug).catch(() => null);
+  const company = await getPublicCompanyScore(slug);
   if (!company) return {};
 
   return {
@@ -34,7 +34,7 @@ export default async function CompanyReportPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const company = await getCompanyScore(slug).catch(() => null);
+  const company = await getPublicCompanyScore(slug);
   if (!company) notFound();
 
   return (

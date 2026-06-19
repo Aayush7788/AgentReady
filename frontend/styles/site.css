@@ -10,9 +10,9 @@
   --surface-strong: #fffdf8;
   --line: #585652;
   --line-strong: #32312f;
-  --primary: #4d8412;
-  --primary-hover: #42750e;
-  --secondary: #4d8412;
+  --primary: #477a10;
+  --primary-hover: #3d6b0d;
+  --secondary: #477a10;
   --pass: #61e624;
   --warn: #df8f1e;
   --fail: #ce2111;
@@ -76,6 +76,7 @@
       .brand {
         display: inline-flex;
         align-items: center;
+        min-height: 44px;
         gap: 9px;
         margin-right: auto;
         font-family: var(--font-mono), monospace;
@@ -101,6 +102,9 @@
       }
 
       .nav a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
         text-decoration: none;
         color: var(--ink-soft);
       }
@@ -112,7 +116,7 @@
       }
 
       .button {
-        min-height: 38px;
+        min-height: 44px;
         border: 1px solid var(--ink);
         border-radius: 4px;
         background: transparent;
@@ -235,7 +239,7 @@
         background: transparent;
         color: var(--ink);
         font-family: var(--font-mono), monospace;
-        font-size: 14px;
+        font-size: 16px;
       }
 
       .scanner .button {
@@ -532,6 +536,8 @@
       .company-link {
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        min-height: 44px;
         gap: 2px;
         text-decoration: none;
       }
@@ -916,7 +922,7 @@
         width: 100%;
         min-height: 46px;
         background: var(--secondary);
-        color: #162013;
+        color: #fffdf8;
       }
 
       .credit {
@@ -945,10 +951,13 @@
         gap: 18px;
         color: #ffffff;
         font-family: var(--font-mono), monospace;
-        font-size: 11px;
+        font-size: 12px;
       }
 
       .footer-links a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
         text-underline-offset: 4px;
       }
 
@@ -1446,6 +1455,7 @@
       .report-url a {
         display: inline-flex;
         align-items: center;
+        min-height: 44px;
         gap: 7px;
       }
 
@@ -1497,9 +1507,9 @@
 
       @media (max-width: 640px) {
         .agent-view-button {
-          min-width: 38px;
+          min-width: 44px;
           padding: 0 10px;
-          font-size: 0;
+          font-size: 13px;
         }
 
         .agent-view-button svg {

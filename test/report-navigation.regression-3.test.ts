@@ -16,6 +16,7 @@ describe("company report navigation", () => {
 
     expect(homeSource).toContain("<HashScrollRestorer />");
     expect(restorerSource).toContain("window.location.hash.slice(1)");
+    expect(restorerSource).toContain('scrollBehavior = "auto"');
     expect(restorerSource).toContain("scrollIntoView");
   });
 });

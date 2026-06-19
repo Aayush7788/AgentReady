@@ -9,7 +9,14 @@ export function HashScrollRestorer() {
 
     const firstFrame = window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => {
-        document.getElementById(targetId)?.scrollIntoView({ block: "start" });
+        const target = document.getElementById(targetId);
+        if (!target) return;
+
+        const rootElement = document.documentElement;
+        const previousBehavior = rootElement.style.scrollBehavior;
+        rootElement.style.scrollBehavior = "auto";
+        target.scrollIntoView({ block: "start" });
+        rootElement.style.scrollBehavior = previousBehavior;
       });
     });
 

@@ -67,6 +67,7 @@
       }
 
       .topbar-inner {
+        position: relative;
         min-height: 60px;
         display: flex;
         align-items: center;
@@ -113,6 +114,11 @@
         color: var(--primary);
         text-decoration: underline;
         text-underline-offset: 4px;
+      }
+
+      .mobile-menu-toggle,
+      .mobile-navigation {
+        display: none;
       }
 
       .button {
@@ -997,6 +1003,52 @@
           display: none;
         }
 
+        .mobile-menu-toggle {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 44px;
+          height: 44px;
+          padding: 0;
+          border: 1px solid var(--ink);
+          border-radius: 4px;
+          background: var(--surface);
+          color: var(--ink);
+          cursor: pointer;
+        }
+
+        .mobile-menu-toggle:focus-visible {
+          outline: 2px solid var(--primary);
+          outline-offset: 3px;
+        }
+
+        .mobile-navigation {
+          position: absolute;
+          top: calc(100% + 1px);
+          right: 0;
+          display: grid;
+          width: min(300px, calc(100vw - 22px));
+          padding: 8px;
+          border: 1px solid var(--line-strong);
+          background: var(--surface);
+          box-shadow: var(--shadow);
+        }
+
+        .mobile-navigation a {
+          display: flex;
+          align-items: center;
+          min-height: 48px;
+          padding: 0 12px;
+          border-bottom: 1px solid var(--line);
+          font-family: var(--font-mono), monospace;
+          font-size: 13px;
+          text-decoration: none;
+        }
+
+        .mobile-navigation a:last-child {
+          border-bottom: 0;
+        }
+
         .hero-inner,
         .score-layout,
         .contact {
@@ -1535,6 +1587,14 @@
 
         .scan-status-panel h1 {
           font-size: 42px;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .agent-view-button {
+          width: 44px;
+          padding: 0;
+          font-size: 0;
         }
       }
 

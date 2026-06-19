@@ -1,7 +1,19 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
-import { Bot } from "lucide-react";
+import { Bot, Menu, X } from "lucide-react";
+
+const navigation = [
+  { href: "/#score", label: "Score" },
+  { href: "/#leaderboard", label: "Leaderboard" },
+  { href: "/#procedure", label: "Procedure" },
+  { href: "/#contact", label: "Get help" },
+] as const;
 
 export function SiteHeader() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header className="topbar">
       <div className="shell topbar-inner">
@@ -10,10 +22,11 @@ export function SiteHeader() {
           AgentReady
         </Link>
         <nav className="nav" aria-label="Primary navigation">
-          <Link href="/#score">Score</Link>
-          <Link href="/#leaderboard">Leaderboard</Link>
-          <Link href="/#procedure">Procedure</Link>
-          <Link href="/#contact">Get help</Link>
+          {navigation.map((item) => (
+            <Link href={item.href} key={item.href}>
+              {item.label}
+            </Link>
+          ))}
         </nav>
         <a
           className="button agent-view-button"
@@ -24,6 +37,37 @@ export function SiteHeader() {
           <Bot aria-hidden="true" size={15} strokeWidth={1.8} />
           View as Agent
         </a>
+        <button
+          aria-controls="mobile-navigation"
+          aria-expanded={menuOpen}
+          aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+          className="mobile-menu-toggle"
+          onClick={() => setMenuOpen((open) => !open)}
+          type="button"
+        >
+          {menuOpen ? (
+            <X aria-hidden="true" size={19} strokeWidth={1.8} />
+          ) : (
+            <Menu aria-hidden="true" size={19} strokeWidth={1.8} />
+          )}
+        </button>
+        {menuOpen ? (
+          <nav
+            aria-label="Mobile navigation"
+            className="mobile-navigation"
+            id="mobile-navigation"
+          >
+            {navigation.map((item) => (
+              <Link
+                href={item.href}
+                key={item.href}
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        ) : null}
       </div>
     </header>
   );
